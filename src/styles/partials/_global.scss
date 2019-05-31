@@ -83,13 +83,18 @@ button {
     border-radius: 5px;
 }
 
+textarea {
+    resize:none;
+}
+
 
 // entry displays styles
 .display-dreams {
     // display:flex;
     // flex-direction: row;
     // flex-wrap:wrap;
-    background:pink;
+    background: $accent;
+    padding:20px 0;
 }
 
 
@@ -99,8 +104,22 @@ button {
     flex-direction: column; 
     margin: 10px 0;
     background: $secondary;
-
     border: 1px red solid;
+    &:hover {
+        box-shadow: 5px 5px 40px #fff9f7;
+    }
+    .paired-info {
+        display:flex;
+        flex-direction: row;
+        h4,
+        p {
+            margin:0;
+            padding:0;
+        }
+    }
 }
 
 
+// To do:
+// remove button per dream for EntryDisplays
+// error handling if don't fill out Name, Date, What happened 

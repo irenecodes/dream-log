@@ -48,6 +48,8 @@ class App extends Component {
 
       // addes unique key property //data is an object, so we iterate through it using a for in loop 
       // assigns kv pairs to newState object
+      // key refers to the unique ID of the dream stored in the Firebase database.
+      // dreams[key] refers to the associated dream stored in Firebase.
       for(let key in dreams) {
         newState.push({
           key: key,
@@ -111,6 +113,20 @@ class App extends Component {
 
   }
 
+  removeDream(dreamId) {
+    // here we create a reference to the database AT THE BOOK'S ID
+    const dbRef = firebase.database().ref(dreamId);
+    dbRef.remove();
+  //   // does this remove the individual?
+  //   // dbRef.child(dreamId).remove();
+  // }
+
+  // removeDream = (event) => {
+  //   event.preventDefault();
+  //   const dbRef = firebase.database().ref();
+  //   dbRef.remove();
+  }
+
 // render start
   render () {
     return (
@@ -118,6 +134,10 @@ class App extends Component {
 
         <div>
           <Header />
+          <section className="about wrapper">
+            <p>How to use: Fill in the required fields so you can recollect details from your dream to share as a story, or remember for yourself!</p>
+            <p>* denotes required field</p>
+          </section>
         </div>
         
 
@@ -133,13 +153,20 @@ class App extends Component {
           handleClick={this.handleClick} />
         </div>
 
-        <div className="display-dreams wrapper">
-          <EntryDisplays 
-          dreams={this.state.dreams}
-          />
+        <div className="display-dreams">
+          <div className="wrapper">
+            <EntryDisplays 
+            dreams={this.state.dreams}
+            removeDream={this.state.removeDream}
+            />
+          </div>
 
         
         </div>
+
+        <footer>
+          <p>Coded by: Irene Truong. Rufus, Annie Liew's cat, pictured.</p>
+        </footer>
       
 
           

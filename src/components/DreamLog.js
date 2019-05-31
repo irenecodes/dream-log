@@ -18,7 +18,7 @@ class DreamLog extends Component {
                 <form action="submit" className="wrapper">
                     <div className="form-field">
                         
-                        <label for ="name">Name or Alias:</label>
+                        <label for ="name">Name or Alias:*</label>
                         <input
                             type="text" id="name"
                             // (event) is to wait until event takes place then call the function handleChange
@@ -27,10 +27,11 @@ class DreamLog extends Component {
                             // props is to refer to App
                             value={this.props.userName}
                             name='userName'
+                            required='true'
                         />
                     </div>
                     <div className="form-field">
-                        <label for="date">Date:</label>
+                        <label for="date">Date:*</label>
                         <input
                             // type="text"
                             type="date"
@@ -42,22 +43,24 @@ class DreamLog extends Component {
 
                             value={this.props.userDate}
                             name='userDate'
+                            required='true'
                             
                         />
                     </div>
                     <div className="form-field">
-                        <label for="emotion">Emotion/Feeling: </label>
+                        <label for="emotion">Emotion/Feeling (Optional): </label>
                         <input 
                             type="text" 
                             id="emotion"
                             onChange={(event) => { this.props.handleChange(event) }}
                             placeholder="In one word, how did your dream make you feel?"
                             value={this.props.userFeeling}
-                            name='userEmotion' />
+                            name='userEmotion'
+                             />
                     </div>
                     <div className="form-field">
                         
-                        <label for="setting">Dream Setting:</label>
+                        <label for="setting">Dream Setting (Optional):</label>
                         <input 
                             type="text" 
                             id="setting"
@@ -67,7 +70,7 @@ class DreamLog extends Component {
                             name='userSetting' />
                     </div>
                     <div className="form-field-big">
-                        <label for="description">What happened in your dream?</label>
+                        <label for="description">What happened in your dream?*</label>
                         
 
 
