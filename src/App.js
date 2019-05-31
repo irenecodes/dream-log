@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import firebase from './firebase';
+import firebase from './components/firebase';
 // import logo from './logo.svg';
+import DreamLog from './components/DreamLog';
+import EntryDisplays from './components/EntryDisplays';
+import Header from './components/Header';
 import './styles/App.scss';
-import DreamLog from './DreamLog';
-import EntryDisplays from './EntryDisplays';
 
 
 // remember to add a loading state - see museum codealong
@@ -54,6 +55,7 @@ class App extends Component {
         });
       }
 
+      // don't interfere with original data
       // dream = 1
 
       // dream + 3
@@ -113,6 +115,10 @@ class App extends Component {
   render () {
     return (
       <div className = "App">
+
+        <div>
+          <Header />
+        </div>
         
 
         <div>
@@ -127,8 +133,7 @@ class App extends Component {
           handleClick={this.handleClick} />
         </div>
 
-        <div>
-        {/*entry displays go here*/}
+        <div className="display-dreams wrapper">
           <EntryDisplays 
           dreams={this.state.dreams}
           />

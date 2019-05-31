@@ -1,0 +1,106 @@
+.skip-link {
+    position: absolute;
+    left: -1000px;
+    top: 5px;
+    z-index: 999;
+    background: $main;
+    color: $accent-2;
+}
+
+.skip-link:focus {
+    left:0;
+}
+
+// stripping styles
+html {
+    font-family: $secondary;
+    font-size:125%;
+    color:$main;
+    line-height:1.6;
+    font-family: $body-font;
+}
+
+img {
+    display:block;
+    width:100%;
+    max-width: 100%;
+}
+
+.wrapper {
+    max-width:1200px;
+    // margin:0 auto;
+    margin: 10px auto;
+}
+
+// header styles
+header {
+    display:flex;
+    flex-direction: column;
+    background: $accent;
+    h1 {
+        @include heading(3rem, capitalize, $accent-2);
+    }
+    h2 {
+        @include heading(1.2rem, initial, $accent-2);
+    }
+}
+
+h3 {
+    @include heading(1.1rem, uppercase, $accent-2);
+    text-align: left;
+}
+
+// main styles
+main {
+    display:flex;
+    flex-direction:row;
+}
+
+form {
+    width:50%;
+}
+
+
+
+.form-field {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin:3px;
+}
+
+.form-field-big {
+    display:flex;
+    flex-direction: column;
+}
+
+input[type=text],
+input[type=date],
+textarea,
+aside,
+button {
+    border: 1px solid $main;
+    border-radius: 5px;
+}
+
+
+// entry displays styles
+.display-dreams {
+    // display:flex;
+    // flex-direction: row;
+    // flex-wrap:wrap;
+    background:pink;
+}
+
+
+.per-dream {
+    // flex: 1 0 45%;
+    display:flex;
+    flex-direction: column; 
+    margin: 10px 0;
+    background: $secondary;
+
+    border: 1px red solid;
+}
+
+

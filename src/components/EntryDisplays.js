@@ -10,12 +10,14 @@ class EntryDisplays extends Component {
                 {
                     this.props.dreams.map((dream) => {
                         return (
-                           <div>
+                            <div className="per-dream">
+                                <h3>{dream.value.name}'s dream log</h3>
                                 <p>{dream.value.date}</p>
-                                <p>{dream.value.description}</p>
+                                
                                 <p>{dream.value.emotion}</p>
-                                <p>{dream.value.name}</p>
+                                
                                 <p>{dream.value.setting}</p>
+                                <p>{dream.value.description}</p>
                            
                            </div>
                         )

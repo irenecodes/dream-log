@@ -1,0 +1,24 @@
+// variables
+$header-font: 'Montserrat', sans-serif;
+$body-font: 'Muli', sans-serif;
+
+// black
+$main: #161313;
+// pink
+$accent: #8d80ad;
+// blue
+$accent-2: #1c5d99;
+// white shade
+$secondary: #D8DBE2;
+
+
+
+// mixins
+@mixin heading ($font-size, $tt, $color) {
+    font-size: $font-size;
+    color: $color;
+    font-family: $header-font;
+    text-transform: $tt;
+    line-height: 1.2;
+    text-align: center;
+}
