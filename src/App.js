@@ -44,8 +44,7 @@ class App extends Component {
 // do i need this?
       // variable to store every value in our database
       const dreams = response.val();
-      console.log(dreams);
-
+      console.log(response.val())
       // addes unique key property //data is an object, so we iterate through it using a for in loop 
       // assigns kv pairs to newState object
       // key refers to the unique ID of the dream stored in the Firebase database.
@@ -88,6 +87,11 @@ class App extends Component {
   handleClick = (event) => {
     event.preventDefault();
     console.log('clicking');
+    if (
+      this.state.userName === "" ||
+      this.state.userDate === "" || this.state.userDescription === "") {
+      alert('Please fill required fields.')
+    } 
 
     // want to create a value for each of the described in form and then push to firebase
     const newEntry = {
@@ -103,17 +107,18 @@ class App extends Component {
     dbRef.push(newEntry);
 
     // after click, reset field
-    this.setState = {
+    this.setState({
       userName: "",
       userDate: "",
       userEmotion: "",
       userSetting: "",
       userDescription: "",
-    }
+    })
 
   }
 
   removeDream(dreamId) {
+    console.log('hello, dream', dreamId)
     // here we create a reference to the database AT THE BOOK'S ID
     const dbRef = firebase.database().ref(dreamId);
     dbRef.remove();
@@ -155,17 +160,15 @@ class App extends Component {
 
         <div className="display-dreams">
           <div className="wrapper">
-            <EntryDisplays 
-            dreams={this.state.dreams}
-            removeDream={this.state.removeDream}
-            />
-          </div>
-
-        
+            {this.state.dreams.map((dream) => {
+              return <EntryDisplays dream={dream} removeDream={this.removeDream} />
+            })}
+            </div>
         </div>
 
-        <footer>
-          <p>Coded by: Irene Truong. Rufus, Annie Liew's cat, pictured.</p>
+
+        <footer className = "wrapper">
+          <p>Coded by: Irene Truong. Picture of sleeping cat provided by Soo.</p>
         </footer>
       
 

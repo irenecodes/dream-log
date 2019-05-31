@@ -4,11 +4,8 @@ import React, { Component } from 'react';
 // EntryDisplays shows the results!
 class EntryDisplays extends Component {
     render () {
-        return (
-            // <p>hi</p>
-            <div>
-                {
-                    this.props.dreams.map((dream) => {
+        const {dream} = this.props;
+        console.log(dream)
                         return (
                             <div className="per-dream">
                                 <h3>{dream.value.name}'s dream log</h3>
@@ -31,19 +28,10 @@ class EntryDisplays extends Component {
                                     <p>{dream.value.description}</p>
                                 </div>
                                 {/*<button onClick={() => this.props.removeDream(this.dreams.key)}>Remove from Log</button>*/}
-                                <button onClick={this.props.removeDream}>Remove from Log</button>
+                                <button onClick={() => this.props.removeDream(dream.key)}>Remove from Log</button>
                            
                            </div>
                         )
-
-                    })
-                }
-           
-            
-            </div>
-
-         
-        )
     }
 
 }

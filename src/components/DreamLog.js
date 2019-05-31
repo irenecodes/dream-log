@@ -13,7 +13,7 @@ class DreamLog extends Component {
     render () {
         return (
             <main id="main">
-                <a href='#main' class='skip-link' >Skip to main content.</a>
+                <a href='#main' className='skip-link' >Skip to main content.</a>
 
                 <form action="submit" className="wrapper">
                     <div className="form-field">
@@ -85,7 +85,7 @@ class DreamLog extends Component {
                     <button onClick={this.props.handleClick}>Submit</button>
                 </form>
                 <aside className="wrapper">
-                    <img src={bonbon} alt={"cat sleeping in bag"} /> 
+                    <img src={bonbon} alt={"Cat sleeping in bag."} /> 
                 </aside>
             </main>
         )
