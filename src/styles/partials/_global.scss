@@ -20,6 +20,10 @@ html {
     font-family: $body-font;
 }
 
+body {
+    background: $accent-2;
+}
+
 img {
     display:block;
     width:100%;
@@ -36,7 +40,7 @@ img {
 header {
     display:flex;
     flex-direction: column;
-    background: $accent;
+    background: $main;
     h1 {
         @include heading(3rem, capitalize, $accent-2);
     }
@@ -50,17 +54,47 @@ h3 {
     text-align: left;
 }
 
+// button styles
+button {
+    &:hover,
+    &:focus {
+        background: red; 
+        color: $secondary;
+        transition: all ease 0.5s;
+    }
+}
+
+
+// about styles
+.about {
+    background: $secondary;
+    p {
+        padding:5px;
+        margin:0;
+    }
+}
+
 // main styles
 main {
     display:flex;
     flex-direction:row;
+    background: $secondary;
+    color: $main;
 }
 
 form {
-    width:50%;
+    flex: 0 0 50%;
+    button {
+        width: 100%;
+    }
 }
 
-
+aside {
+    display:flex;
+    img {
+        flex: 0 0 40%;
+    }
+}
 
 .form-field {
     display:flex;
@@ -73,6 +107,12 @@ form {
     display:flex;
     flex-direction: column;
 }
+
+.about,
+footer p {
+    border: 1px solid $main;
+}
+
 
 input[type=text],
 input[type=date],
@@ -87,39 +127,116 @@ textarea {
     resize:none;
 }
 
+input[type=text],
+input[type=date],
+textarea {
+    padding: 3px;
+}
+
 
 // entry displays styles
 .display-dreams {
-    // display:flex;
-    // flex-direction: row;
-    // flex-wrap:wrap;
-    background: $accent;
+    background: $main;
     padding:20px 0;
+}
+
+.display-dreams-content {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap:wrap;
+    padding: 0 5px;
 }
 
 
 .per-dream {
-    // flex: 1 0 45%;
+    flex: 0 0 49%;
+    min-width:49%;
     display:flex;
     flex-direction: column; 
     margin: 10px 0;
+    padding: 5px;
     background: $secondary;
     border: 1px red solid;
+    overflow-wrap:break-word;
+    // word-wrap: break-word;
     &:hover {
         box-shadow: 5px 5px 40px #fff9f7;
+        h3 {
+            border-bottom: 1px red solid;
+        }
     }
     .paired-info {
-        display:flex;
-        flex-direction: row;
-        h4,
-        p {
-            margin:0;
-            padding:0;
-        }
+        // display:flex;
+        // flex-direction: row;
+        // flex-wrap: wrap;
+        // overflow-wrap:break-word;
+    }
+    h4,
+    p {
+        margin:0;
+        padding:0;
     }
 }
 
 
-// To do:
-// remove button per dream for EntryDisplays
-// error handling if don't fill out Name, Date, What happened 
+// footer styles
+footer {
+    background: $secondary;
+    p {
+        text-align: center;
+    }
+}
+
+
+
+
+// media queries
+@media (max-width:1008px) {
+    form {
+        flex: 0 0 99%;
+    }
+    .form-field {
+        flex-direction: column;
+    }
+    aside {
+        display:none;
+    }
+}
+
+
+@media (max-width:882px) {
+    .display-dreams-content {
+        flex-direction: column;
+        flex-wrap: nowrap;
+    }
+}
+
+
+
+@media (max-width:720px) {
+    
+
+}
+
+@media (max-width:375px) {
+    // input[type=text],
+    // input[type=date],
+    // textarea,
+    // form button {
+    //     max-width: 90%;
+    // }
+    .form-field {
+        max-width:90%;
+    }
+
+}
+
+@media (max-width:320px) {
+
+}
+
+
+// Todo: 
+// - error handling for if not filling fields
+// media-queries

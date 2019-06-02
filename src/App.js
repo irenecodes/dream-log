@@ -37,15 +37,10 @@ class App extends Component {
     const dbRef = firebase.database().ref();
     // watches for changes to values - updates when changes instantly
     dbRef.on('value', (response) => {
-      // console.log(response.val());
-
       // to not tarnish original
       const newState = [];
-// do i need this?
-      // variable to store every value in our database
+      // variable to store every value in database
       const dreams = response.val();
-      console.log(response.val())
-      // addes unique key property //data is an object, so we iterate through it using a for in loop 
       // assigns kv pairs to newState object
       // key refers to the unique ID of the dream stored in the Firebase database.
       // dreams[key] refers to the associated dream stored in Firebase.
@@ -55,20 +50,6 @@ class App extends Component {
           value: dreams[key],
         });
       }
-
-      // don't interfere with original data
-      // dream = 1
-
-      // dream + 3
-
-      // dream = dream + 3
-
-      // newstate = dream + 3
-      // newstate = 4
-
-      // dream = newstate
-
-
 
       this.setState({
 // puts all the new states in the empty array
@@ -87,56 +68,78 @@ class App extends Component {
   handleClick = (event) => {
     event.preventDefault();
     console.log('clicking');
+// error handling if required fields are not complete
     if (
       this.state.userName === "" ||
-      this.state.userDate === "" || this.state.userDescription === "") {
+      this.state.userDate === "" ||
+      this.state.userDescription === "") {
       alert('Please fill required fields.')
-    } 
+      
+    } else {
+      const newEntry = {
+        name: this.state.userName,
+        date: this.state.userDate,
+        emotion: this.state.userEmotion,
+        setting: this.state.userSetting,
+        description: this.state.userDescription,
+      };
 
-    // want to create a value for each of the described in form and then push to firebase
-    const newEntry = {
-      name: this.state.userName,
-      date: this.state.userDate,
-      emotion: this.state.userEmotion,
-      setting: this.state.userSetting,
-      description: this.state.userDescription,
-    };
+      // data stored in this variable in firebase
+      const dbRef = firebase.database().ref();
+      dbRef.push(newEntry);
 
-    // data stored in this variable in firebase
-    const dbRef = firebase.database().ref();
-    dbRef.push(newEntry);
+      // after click, reset field
+      this.setState({
+        userName: "",
+        userDate: "",
+        userEmotion: "",
+        userSetting: "",
+        userDescription: "",
+      })
+    }
 
-    // after click, reset field
-    this.setState({
-      userName: "",
-      userDate: "",
-      userEmotion: "",
-      userSetting: "",
-      userDescription: "",
-    })
+
+    // trying to exclude optional field inputs if not filled
+
+    if (
+      this.state.userEmotion === "" ||
+      this.state.userSetting === "") {
+     
+      const newEntry = {
+        name: this.state.userName,
+        date: this.state.userDate,
+        description: this.state.userDescription,
+      };
+
+      // data stored in this variable in firebase
+      const dbRef = firebase.database().ref();
+      dbRef.push(newEntry);
+
+      // after click, reset field
+      this.setState({
+        userName: "",
+        userDate: "",
+        userEmotion: "",
+        userSetting: "",
+        userDescription: "",
+      })
+
+    }
+    //ends here
 
   }
 
   removeDream(dreamId) {
     console.log('hello, dream', dreamId)
-    // here we create a reference to the database AT THE BOOK'S ID
+    // here we create a reference to the database at the dream's ID
     const dbRef = firebase.database().ref(dreamId);
     dbRef.remove();
-  //   // does this remove the individual?
-  //   // dbRef.child(dreamId).remove();
-  // }
-
-  // removeDream = (event) => {
-  //   event.preventDefault();
-  //   const dbRef = firebase.database().ref();
-  //   dbRef.remove();
   }
 
 // render start
   render () {
     return (
       <div className = "App">
-
         <div>
           <Header />
           <section className="about wrapper">
@@ -159,7 +162,7 @@ class App extends Component {
         </div>
 
         <div className="display-dreams">
-          <div className="wrapper">
+          <div className="wrapper display-dreams-content">
             {this.state.dreams.map((dream) => {
               return <EntryDisplays dream={dream} removeDream={this.removeDream} />
             })}
@@ -170,11 +173,6 @@ class App extends Component {
         <footer className = "wrapper">
           <p>Coded by: Irene Truong. Picture of sleeping cat provided by Soo.</p>
         </footer>
-      
-
-          
-        
-
       </div>
     )
   }
