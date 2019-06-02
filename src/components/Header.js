@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faComment } from '@fortawesome/free-solid-svg-icons'
+
+const bubble = <FontAwesomeIcon icon={faComment} />
 
 
 class Header extends Component {
@@ -7,7 +11,7 @@ class Header extends Component {
             <div>
                 <header>
                     <h1>
-                        Sleep Talk
+                        Sleep Talk {bubble}
                     </h1>
                     <h2>
                         A site that helps you keep track of your dreams!

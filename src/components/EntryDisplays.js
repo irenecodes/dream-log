@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
+const trash = <FontAwesomeIcon icon={faTrash} /> 
 
 // EntryDisplays shows the results!
 class EntryDisplays extends Component {
@@ -13,9 +16,6 @@ class EntryDisplays extends Component {
                     <h4>Dated:</h4><p>{dream.value.date}</p>
                 </div>
 
-
-                
-                
                 <div className="paired-info">
                     <h4>Feeling:</h4><p>{dream.value.emotion}</p>
                 </div>
@@ -30,7 +30,7 @@ class EntryDisplays extends Component {
                     Description of Dream:</h4>
                     <p>{dream.value.description}</p>
                 </div>
-                <button onClick={() => this.props.removeDream(dream.key)}>Remove from Log</button>      
+                <button onClick={() => this.props.removeDream(dream.key)}>Remove from Log {trash}</button>      
             </div>
         )
     }

@@ -4,7 +4,7 @@
     top: 5px;
     z-index: 999;
     background: $main;
-    color: $accent-2;
+    color: $accent;
 }
 
 .skip-link:focus {
@@ -21,7 +21,7 @@ html {
 }
 
 body {
-    background: $accent-2;
+    background: $background;
 }
 
 img {
@@ -36,21 +36,29 @@ img {
     margin: 10px auto;
 }
 
+span {
+    // &:hover {
+    //     animation-duration: 3s;
+    //     animation-delay: 2s;
+    //     animation-iteration-count: infinite;
+    // }
+}
+
 // header styles
 header {
     display:flex;
     flex-direction: column;
     background: $main;
     h1 {
-        @include heading(3rem, capitalize, $accent-2);
+        @include heading(3rem, capitalize, $accent);
     }
     h2 {
-        @include heading(1.2rem, initial, $accent-2);
+        @include heading(1.2rem, initial, $accent);
     }
 }
 
 h3 {
-    @include heading(1.1rem, uppercase, $accent-2);
+    @include heading(1.1rem, uppercase, $accent);
     text-align: left;
 }
 
@@ -67,7 +75,6 @@ button {
 
 // about styles
 .about {
-    background: $secondary;
     p {
         padding:5px;
         margin:0;
@@ -108,10 +115,6 @@ aside {
     flex-direction: column;
 }
 
-.about,
-footer p {
-    border: 1px solid $main;
-}
 
 
 input[type=text],
@@ -157,20 +160,12 @@ textarea {
     margin: 10px 0;
     padding: 5px;
     background: $secondary;
-    border: 1px red solid;
     overflow-wrap:break-word;
-    // word-wrap: break-word;
     &:hover {
         box-shadow: 5px 5px 40px #fff9f7;
         h3 {
             border-bottom: 1px red solid;
         }
-    }
-    .paired-info {
-        // display:flex;
-        // flex-direction: row;
-        // flex-wrap: wrap;
-        // overflow-wrap:break-word;
     }
     h4,
     p {
@@ -182,7 +177,6 @@ textarea {
 
 // footer styles
 footer {
-    background: $secondary;
     p {
         text-align: center;
     }
@@ -214,20 +208,22 @@ footer {
 
 
 
-@media (max-width:720px) {
-    
+@media (max-width:550px) {
+    p {
+        font-size:0.8rem;
+    }
 
 }
 
-@media (max-width:375px) {
-    // input[type=text],
-    // input[type=date],
-    // textarea,
-    // form button {
-    //     max-width: 90%;
-    // }
+@media (max-width:392px) {
+    html {
+        font-size: 100%;
+    }
     .form-field {
         max-width:90%;
+    }
+    p {
+        font-size:0.9rem;
     }
 
 }
@@ -239,4 +235,5 @@ footer {
 
 // Todo: 
 // - error handling for if not filling fields
-// media-queries
+
+// extra: animate trash can on hover - dependency already installed and linked in index.html

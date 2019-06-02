@@ -7,6 +7,7 @@ import Header from './components/Header';
 import './styles/App.scss';
 
 
+
 // remember to add a loading state - see museum codealong
 
 // starting state is empty
@@ -25,8 +26,9 @@ class App extends Component {
       dreams: [],
 
       // loading state
-      // isLoading: true,
+      isLoading: true,
       // how to put loading state for firebase?
+
       
     }
   }
@@ -97,36 +99,6 @@ class App extends Component {
         userDescription: "",
       })
     }
-
-
-    // trying to exclude optional field inputs if not filled
-
-    if (
-      this.state.userEmotion === "" ||
-      this.state.userSetting === "") {
-     
-      const newEntry = {
-        name: this.state.userName,
-        date: this.state.userDate,
-        description: this.state.userDescription,
-      };
-
-      // data stored in this variable in firebase
-      const dbRef = firebase.database().ref();
-      dbRef.push(newEntry);
-
-      // after click, reset field
-      this.setState({
-        userName: "",
-        userDate: "",
-        userEmotion: "",
-        userSetting: "",
-        userDescription: "",
-      })
-
-    }
-    //ends here
-
   }
 
   removeDream(dreamId) {

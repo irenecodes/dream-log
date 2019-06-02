@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import bonbon from '../assets/bonbon.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBed } from '@fortawesome/free-solid-svg-icons'
+
+const bed = <FontAwesomeIcon icon={faBed} />
 
 class DreamLog extends Component {
     // ONLY NEED CONSTRUCTOR AND COMPONENT DID MOUNT IF DEALING WITH ORIGINAL STATE
@@ -67,7 +71,7 @@ class DreamLog extends Component {
                             name="userDescription"
                             required={true}></textarea>
                     </div>
-                    <button onClick={this.props.handleClick}>Submit</button>
+                    <button onClick={this.props.handleClick}>Submit {bed}</button>
                 </form>
                 <aside className="wrapper">
                     <img src={bonbon} alt={"Cat sleeping in bag."} /> 
