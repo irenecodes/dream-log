@@ -4,7 +4,10 @@ import DreamLog from './components/DreamLog';
 import EntryDisplays from './components/EntryDisplays';
 import Header from './components/Header';
 import './styles/App.scss';
+// imported libraries
 import swal from '@sweetalert/with-react';
+import ScrollUpButton from "react-scroll-up-button";
+
 
 // starting state is empty
 class App extends Component {
@@ -109,6 +112,20 @@ class App extends Component {
     return (
       this.state.isLoading ? <p>Loading dream log...</p> : 
       <div className = "App">
+        <ScrollUpButton 
+          StopPosition={0}
+          ShowAtPosition={500}
+          EasingType='easeOutCubic'
+          AnimationDuration={500}
+          ContainerClassName='ScrollUpButton__Container'
+          TransitionClassName='ScrollUpButton__Toggled'
+          style={{"border": "3px solid red"}}
+          ToggledStyle={{}}
+          // FYI: 3rd tab after info icon on mozilla (i.e. info, url, X, scroll-to-top), the immediate tab after url on chrome
+          tabindex="0"
+          aria-label="scroll to top"
+          role="button"
+        />
         <div>
           <Header />
           <section className="about wrapper">
@@ -144,6 +161,9 @@ class App extends Component {
           <p>Coded by: Irene Truong</p>
           <p>. Picture of sleeping cat, Bonbon, provided by Soo.</p>
         </footer>
+
+
+        
       </div>
     )
   }
