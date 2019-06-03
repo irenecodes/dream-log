@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
+// importing pic of cat
 import bonbon from '../assets/bonbon.png';
+
+// importing font-awesome icon library
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed } from '@fortawesome/free-solid-svg-icons'
 
+// font-awesome icon import
 const bed = <FontAwesomeIcon aria-hidden="true" icon={faBed} />
 
 class DreamLog extends Component {
-    // ONLY NEED CONSTRUCTOR AND COMPONENT DID MOUNT IF DEALING WITH ORIGINAL STATE
+    // don't need constructor or componentdidmount bc not dealing with original state
     render () {
         return (
             <main id="main">
@@ -30,7 +34,7 @@ class DreamLog extends Component {
                         <input
                             type="date"
                             id="date"
-                            min="2019-01-01" max="2020-12-31"
+                            min="2019-01-01" max="2019-12-31"
                             onChange= {(event) => { this.props.handleChange(event) }}
                             value={this.props.userDate}
                             name='userDate'
@@ -68,7 +72,7 @@ class DreamLog extends Component {
                             cols="20" rows="10" 
                             id="description"
                             onChange={(event) => { this.props.handleChange(event) }}
-                            placeholder="Ash was being pushy and pressuring me to evolve into Raichu, and it was very heartbreaking but in the end, he did not go through with it. I also met a girl named Irene who was suffering from React week and I sympathized with her."
+                            placeholder="i.e. Ash was being pushy and pressuring me to evolve into Raichu, and it was very heartbreaking but in the end, he did not go through with it. Thanks Ash, you a real one."
                             value={this.props.userDescription}
                             name="userDescription"
                             required={true}></textarea>

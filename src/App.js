@@ -1,14 +1,10 @@
 import React, { Component } from 'react';
 import firebase from './components/firebase';
-// import logo from './logo.svg';
 import DreamLog from './components/DreamLog';
 import EntryDisplays from './components/EntryDisplays';
 import Header from './components/Header';
 import './styles/App.scss';
-
-
-
-// remember to add a loading state - see museum codealong
+import swal from '@sweetalert/with-react';
 
 // starting state is empty
 class App extends Component {
@@ -27,9 +23,6 @@ class App extends Component {
 
       // loading state
       isLoading: true,
-      // how to put loading state for firebase?
-
-      
     }
   }
 
@@ -39,7 +32,7 @@ class App extends Component {
     const dbRef = firebase.database().ref();
     // watches for changes to values - updates when changes instantly
     dbRef.on('value', (response) => {
-      // to not tarnish original
+      // to not tarnish original state
       const newState = [];
       // variable to store every value in database
       const dreams = response.val();
@@ -77,7 +70,7 @@ class App extends Component {
       this.state.userEmotion === "" ||
       this.state.userSetting === "" ||
       this.state.userDescription === "") {
-      alert('Please fill required fields.')
+      swal("Failure", "Please fill all required fields.", "error");
       
     } else {
       const newEntry = {
@@ -100,6 +93,8 @@ class App extends Component {
         userSetting: "",
         userDescription: "",
       })
+
+      swal("Success!", "Your dream has been logged!", "success");
     }
   }
 
@@ -146,7 +141,8 @@ class App extends Component {
 
 
         <footer className = "wrapper">
-          <p>Coded by: Irene Truong. Picture of sleeping cat, Bonbon, provided by Soo.</p>
+          <p>Coded by: Irene Truong</p>
+          <p>. Picture of sleeping cat, Bonbon, provided by Soo.</p>
         </footer>
       </div>
     )

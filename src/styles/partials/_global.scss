@@ -32,16 +32,7 @@ img {
 
 .wrapper {
     max-width:1200px;
-    // margin:0 auto;
     margin: 10px auto;
-}
-
-span {
-    // &:hover {
-    //     animation-duration: 3s;
-    //     animation-delay: 2s;
-    //     animation-iteration-count: infinite;
-    // }
 }
 
 // header styles
@@ -146,17 +137,11 @@ textarea {
 }
 
 .display-dreams-content {
-    // display:flex;
-    // flex-direction: row;
-    // justify-content: space-around;
-    // flex-wrap:wrap;
     padding: 0 5px;
 }
 
 
 .per-dream {
-    // flex: 0 0 49%;
-    // min-width:49%;
     display:flex;
     flex-direction: column; 
     margin: 10px 0;
@@ -178,13 +163,15 @@ textarea {
 
 
 // footer styles
-footer {
+footer.wrapper {
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    margin:0 auto;
     p {
-        text-align: center;
+        display: inline;
     }
 }
-
-
 
 
 // media queries
@@ -198,6 +185,9 @@ footer {
     aside {
         display:none;
     }
+    footer p:nth-child(2){
+        display:none;
+    }
 }
 
 
@@ -207,7 +197,6 @@ footer {
         flex-wrap: nowrap;
     }
 }
-
 
 
 @media (max-width:550px) {
@@ -231,11 +220,5 @@ footer {
 }
 
 @media (max-width:320px) {
-
+// rubric wants me to consider this size - this size was considered and 392px styles translate well here
 }
-
-
-// Todo: 
-// - error handling for if not filling fields
-
-// extra: animate trash can on hover - dependency already installed and linked in index.html

@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+
+// importing font-awesome icon library
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
+// animated css library import
 import { Animated } from "react-animated-css";
 
+// font-awesome icon import
 const trash = <FontAwesomeIcon aria-hidden="true" icon={faTrash} /> 
 
 // EntryDisplays shows the results!
@@ -11,8 +15,8 @@ class EntryDisplays extends Component {
     render () {
         const {dream} = this.props;
         return (
-            <Animated animationIn="fadeInDown"  
-            animationInDuration={2000}  isVisible={true}>
+            <Animated animationIn="fadeInDownBig"  
+            animationInDuration={3000}  isVisible={true}>
             
                 
                 <div className="per-dream">
