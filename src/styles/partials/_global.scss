@@ -11,11 +11,17 @@
     left:0;
 }
 
-
+.ScrollUpButton__Container {
+    border: 3px solid $secondary;
+    &:hover,
+    &:focus {
+        border: 3px solid red;
+    }
+}
 
 // stripping styles
 html {
-    font-family: $secondary;
+    // font-family: $secondary;
     font-size:125%;
     color:$main;
     line-height:1.6;
@@ -150,7 +156,8 @@ textarea {
     padding: 5px;
     background: $secondary;
     overflow-wrap:break-word;
-    &:hover {
+    &:hover,
+    &:focus {
         box-shadow: 5px 5px 40px #fff9f7;
         h3 {
             border-bottom: 1px red solid;
@@ -184,7 +191,7 @@ footer.wrapper {
     .form-field {
         flex-direction: column;
     }
-    aside {
+    aside.bonbon {
         display:none;
     }
     footer p:nth-child(2){

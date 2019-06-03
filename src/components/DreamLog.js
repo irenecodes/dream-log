@@ -79,7 +79,7 @@ class DreamLog extends Component {
                     </div>
                     <button onClick={this.props.handleClick}>Submit {bed}</button>
                 </form>
-                <aside className="wrapper">
+                <aside className="wrapper bonbon">
                     <img src={bonbon} alt={"Cat sleeping in bag."} /> 
                 </aside>
             </main>

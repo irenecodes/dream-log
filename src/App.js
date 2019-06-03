@@ -5,7 +5,9 @@ import EntryDisplays from './components/EntryDisplays';
 import Header from './components/Header';
 import './styles/App.scss';
 // imported libraries
+// credit: sweet alerts
 import swal from '@sweetalert/with-react';
+// credit: https://www.npmjs.com/package/react-scroll-up-button
 import ScrollUpButton from "react-scroll-up-button";
 
 
@@ -119,9 +121,8 @@ class App extends Component {
           AnimationDuration={500}
           ContainerClassName='ScrollUpButton__Container'
           TransitionClassName='ScrollUpButton__Toggled'
-          style={{"border": "3px solid red"}}
+          style={{}}
           ToggledStyle={{}}
-          // FYI: 3rd tab after info icon on mozilla (i.e. info, url, X, scroll-to-top), the immediate tab after url on chrome
           tabindex="0"
           aria-label="scroll to top"
           role="button"
