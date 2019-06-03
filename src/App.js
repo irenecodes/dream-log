@@ -56,6 +56,7 @@ class App extends Component {
       this.setState({
 // puts all the new states in the empty array
         dreams: newState,
+        isLoading:false,
       })
     });
   }
@@ -69,11 +70,12 @@ class App extends Component {
 
   handleClick = (event) => {
     event.preventDefault();
-    console.log('clicking');
 // error handling if required fields are not complete
     if (
       this.state.userName === "" ||
       this.state.userDate === "" ||
+      this.state.userEmotion === "" ||
+      this.state.userSetting === "" ||
       this.state.userDescription === "") {
       alert('Please fill required fields.')
       
@@ -102,7 +104,6 @@ class App extends Component {
   }
 
   removeDream(dreamId) {
-    console.log('hello, dream', dreamId)
     // here we create a reference to the database at the dream's ID
     const dbRef = firebase.database().ref(dreamId);
     dbRef.remove();
@@ -111,12 +112,14 @@ class App extends Component {
 // render start
   render () {
     return (
+      this.state.isLoading ? <p>Loading dream log...</p> : 
       <div className = "App">
         <div>
           <Header />
           <section className="about wrapper">
-            <p>How to use: Fill in the required fields so you can recollect details from your dream to share as a story, or remember for yourself!</p>
-            <p>* denotes required field</p>
+            <h4>How to use:</h4>
+            <p> Fill in all fields so you can recollect details from your dream to share as a story, or remember for yourself!</p>
+            
           </section>
         </div>
         
@@ -143,7 +146,7 @@ class App extends Component {
 
 
         <footer className = "wrapper">
-          <p>Coded by: Irene Truong. Picture of sleeping cat provided by Soo.</p>
+          <p>Coded by: Irene Truong. Picture of sleeping cat, Bonbon, provided by Soo.</p>
         </footer>
       </div>
     )

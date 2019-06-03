@@ -3,7 +3,7 @@ import bonbon from '../assets/bonbon.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed } from '@fortawesome/free-solid-svg-icons'
 
-const bed = <FontAwesomeIcon icon={faBed} />
+const bed = <FontAwesomeIcon aria-hidden="true" icon={faBed} />
 
 class DreamLog extends Component {
     // ONLY NEED CONSTRUCTOR AND COMPONENT DID MOUNT IF DEALING WITH ORIGINAL STATE
@@ -14,7 +14,7 @@ class DreamLog extends Component {
 
                 <form action="submit" className="wrapper">
                     <div className="form-field"> 
-                        <label for ="name">Name or Alias:*</label>
+                        <label for ="name">Name or Alias:</label>
                         <input
                             type="text" id="name"
                             // (event) is to wait until event takes place then call the function handleChange
@@ -26,7 +26,7 @@ class DreamLog extends Component {
                         />
                     </div>
                     <div className="form-field">
-                        <label for="date">Date:*</label>
+                        <label for="date">Date:</label>
                         <input
                             type="date"
                             id="date"
@@ -39,29 +39,31 @@ class DreamLog extends Component {
                         />
                     </div>
                     <div className="form-field">
-                        <label for="emotion">Emotion/Feeling (Optional): </label>
+                        <label for="emotion">Emotion/Feeling: </label>
                         <input 
                             type="text" 
                             id="emotion"
                             onChange={(event) => { this.props.handleChange(event) }}
                             placeholder="i.e. Sad"
-                            value={this.props.userFeeling}
+                            value={this.props.userEmotion}
                             name='userEmotion'
+                            required={true}
                              />
                     </div>
                     <div className="form-field">
                         
-                        <label for="setting">Dream Setting (Optional):</label>
+                        <label for="setting">Dream Setting:</label>
                         <input 
                             type="text" 
                             id="setting"
                             onChange={(event) => { this.props.handleChange(event) }}
                             placeholder="i.e. In Lt. Surge's gym"
                             value={this.props.userSetting}
-                            name='userSetting' />
+                            name='userSetting'
+                            required={true} />
                     </div>
                     <div className="form-field-big">
-                        <label for="description">What happened in your dream?*</label>
+                        <label for="description">What happened in your dream?</label>
                         <textarea
                             cols="20" rows="10" 
                             id="description"

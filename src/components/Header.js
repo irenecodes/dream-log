@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faComment } from '@fortawesome/free-solid-svg-icons'
 
-const bubble = <FontAwesomeIcon icon={faComment} />
+const bubble = <FontAwesomeIcon aria-hidden="true" icon={faComment} />
 
 
 class Header extends Component {
