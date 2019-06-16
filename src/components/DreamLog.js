@@ -14,8 +14,6 @@ class DreamLog extends Component {
     render () {
         return (
             <main id="main">
-                <a href='#main' className='skip-link' >Skip to main content.</a>
-
                 <form action="submit" className="wrapper">
                     <div className="form-field"> 
                         <label for ="name">Name or Alias:</label>

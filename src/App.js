@@ -159,7 +159,7 @@ class App extends Component {
 
 
         <footer className = "wrapper">
-          <p>Coded by: Irene Truong</p>
+          <p>Developed by Irene Truong</p>
           <p>. Picture of sleeping cat, Bonbon, provided by Soo.</p>
         </footer>
 

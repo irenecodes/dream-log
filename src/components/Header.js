@@ -9,6 +9,7 @@ class Header extends Component {
     render () {
         return (
             <div>
+                <a href='#main' className='skip-link' >Skip to main content.</a>
                 <header>
                     <h1>
                         Sleep Talk {bubble}
