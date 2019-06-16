@@ -176,7 +176,7 @@ textarea {
 
 
 // footer styles
-footer.wrapper {
+footer {
     display:flex;
     justify-content: center;
     align-items:center;
@@ -214,12 +214,6 @@ footer.wrapper {
     }
 }
 
-@media (max-width:670px) {
-    h1,
-    h2 {
-        // width:90%;
-    }
-}
 
 @media (max-width:550px) {
     p {
@@ -229,7 +223,7 @@ footer.wrapper {
 
 @media (max-width:392px) {
     html {
-        font-size: 100%;
+        font-size: 110%;
     }
     .form-field {
         max-width:90%;
